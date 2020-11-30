@@ -24,7 +24,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
-import androidx.compose.ui.window.Popup
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.awt.Desktop
@@ -139,10 +138,14 @@ fun SourceDialog(theme: MutableState<Colors>, showDialog: MutableState<DialogSho
         }
     }
 
+@Suppress("RemoveRedundantQualifierName")
 @ExperimentalFoundationApi
 @ExperimentalKeyInput
 @ExperimentalMaterialApi
-fun uiViewer(info: GenericInfo, title: String, theme: MutableState<Colors>) = Window(title = "$title Viewer", centered = true) {
+fun uiViewer(info: GenericInfo, title: String, theme: MutableState<Colors>) = Window(
+    title = "$title Viewer",
+    centered = true
+) {
     var textValue by remember { mutableStateOf(TextFieldValue("")) }
     var page = 1
     var progressAlpha by remember { mutableStateOf(1f) }
